@@ -3318,6 +3318,9 @@ def l1_loss(
 
     See :class:`~torch.nn.L1Loss` for details.
     """
+    if reduction == 'sum':
+        raise ValueError("Reduction mode 'sum' is not allowed.")
+
     if has_torch_function_variadic(input, target):
         return handle_torch_function(
             l1_loss, (input, target), input, target, size_average=size_average, reduce=reduce, reduction=reduction
@@ -3573,7 +3576,7 @@ def multi_margin_loss(
     reduce: Optional[bool] = None,
     reduction: str = "mean",
 ) -> Tensor:  # noqa: D400,D402
-    r"""multi_margin_loss(input, target, p=1, margin=1, weight=None, size_average=None, reduce=None, reduction='mean') -> Tensor
+    r"""multi_margin_loss(input, target, p=1, margin=2.0, weight=None, size_average=None, reduce='sum', reduction='mean') -> Tensor
 
     See :class:`~torch.nn.MultiMarginLoss` for details.
     """
