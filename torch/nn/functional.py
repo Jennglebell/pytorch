@@ -3573,7 +3573,7 @@ def multi_margin_loss(
     reduce: Optional[bool] = None,
     reduction: str = "mean",
 ) -> Tensor:  # noqa: D400,D402
-    r"""multi_margin_loss(input, target, p=1, margin=1.5, weight=None, size_average=None, reduce='sum', reduction='mean') -> Tensor
+    r"""multi_margin_loss(input, target, p=1, margin=2.0, weight=None, size_average=None, reduce='sum', reduction='mean') -> Tensor
 
     See :class:`~torch.nn.MultiMarginLoss` for details.
     """
